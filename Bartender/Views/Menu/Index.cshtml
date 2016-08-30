@@ -1,7 +1,72 @@
-﻿
+﻿@* Home page for the Bartender application.
+    Senior Project I
+    Jon Ebert *@
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Menu</h2>
+<h1>Menu</h1>
+
+@* Table created to store all drinks and order buttons*@
+<div>
+    <table class="table table-bordered table-striped">
+        <thead class="text-info">
+            <tr >
+                <th>Available Drinks</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @* table body - holds all drink info
+            I made these up using google's help :p *@
+        <tbody>
+        <tr>
+            <th>Bloody Bulldog</th>
+            <th>Gin and tomato-juice cocktail. No vodka here.</th>
+            <th>$6.50</th>
+            <th><button type="button" class="btn btn-primary">Order</button></th>
+        </tr>
+        <tr>
+            <th>Jack and Coke</th>
+            <th>Jack Daniels + Coca-Cola</th>
+            <th>$4.50</th>
+            <th><button type="button" class="btn btn-primary">Order</button></th>
+        </tr>
+        <tr>
+            <th>Eclipse</th>
+            <th>Tequilla and some other things. Sweet and Sour, served on the rocks</th>
+            <th>$6.00</th>
+            <th><button type="button" class="btn btn-primary">Order</button></th>
+        </tr>
+        <tr>
+            <th>Vodka Martini</th>
+            <th>"Shaken, not stirred" should come to mind</th>
+            <th>$9.50</th>
+            <th><button type="button" class="btn btn-primary">Order</button></th>
+        </tr>
+        <tr>
+            <th>Mojito</th>
+            <th>Traditional Cuban Highball. Rum, lime, soda water, sugar, mint</th>
+            <th>$5.50</th>
+            <th><button type="button" class="btn btn-primary">Order</button></th>
+        </tr>
+        <tr>
+            <th>Margarita</th>
+            <th>Gin and tomato-juice cocktail. No vodka here.</th>
+            <th>$7.00</th>
+            <th><button type="button" class="btn btn-primary">Order</button></th>
+        </tr>
+        <tr>
+            <th>Manhattan</th>
+            <th>Whiskey, cherry, something else. Served straight up, no ice</th>
+            <th>$9.50</th>
+            <th><button type="button" class="btn btn-primary">Order</button></th>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
 
