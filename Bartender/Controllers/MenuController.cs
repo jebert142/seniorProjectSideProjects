@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Bartender.Views.Menu;
+﻿using System.Web.Mvc;
 
 namespace Bartender.Controllers
 {
 
-    
+
     public class MenuController : Controller
     {
         // GET: Menu
