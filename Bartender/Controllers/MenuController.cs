@@ -12,6 +12,16 @@ namespace Bartender.Controllers
         {
             return View();
         }
+
+        public ActionResult Orders()
+        {
+            return View();
+        }
+
+        public ActionResult Prepared()
+        {
+            return View();
+        }
     }
 
 }
