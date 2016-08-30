@@ -16,7 +16,8 @@ namespace Bartender
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //Route changed to reflect the name of the "MenuController" instead of the default, "HomeController"
+                defaults: new { controller = "Menu", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
