@@ -9,8 +9,8 @@ namespace Bartender.Controllers
     //MenuController contains all the methods which return the views
     public class MenuController : Controller
     {
-
-        private static List<Drink> _drinkList = new List<Drink>()
+    //moved to order controller
+        private static List<Drink> _drinkList = new List<Drink>() 
         {
             new Drink
             {
@@ -48,12 +48,6 @@ namespace Bartender.Controllers
 
         //returns the Index.cshtml view
         public ActionResult Index()
-        {
-            return View(_drinkList);
-        }
-
-        //returns the Order.cshtml view
-        public ActionResult Orders()
         {
             return View(_drinkList);
         }

@@ -11,9 +11,38 @@ namespace Bartender.Controllers
     //Those methods need to add...
     public class OrderController : Controller
     {
-        //public ActionResult Orders()
-        //{
-        //    return View();
-        //}
+        //creates the order list
+        List<Drink> _drinkOrderList = new List<Drink>();
+
+        //add order method
+        public ActionResult methodAddOrder(Drink drinkToAdd)
+        {
+            _drinkOrderList.Add(drinkToAdd);
+            return RedirectToAction("Ordered");
+        }
+
+        //returns Ordered view and passes in the _drinkOrderList
+        public ActionResult Ordered()
+        {
+            return View(_drinkOrderList);
+        }
+
+        //creates the Prepared list
+        List<Drink> _preparedDrinkList = new List<Drink>();
+
+        //add order method
+        public ActionResult methodAddPreparedDrink(Drink addingDrink)
+        {
+            _preparedDrinkList.Add(addingDrink);
+            return RedirectToAction("Ordered");
+        }
+
+        //returns Ordered view and passes in the _drinkOrderList
+        public ActionResult Prepared()
+        {
+            return View(_drinkOrderList);
+        }
+
+
     }
 }

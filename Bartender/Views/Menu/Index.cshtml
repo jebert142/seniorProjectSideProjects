@@ -33,7 +33,9 @@
                 <th>@item.Description</th>
                 <th>@item.ABV</th>
                 <th>$@item.Price</th>
-                <th><button type="button" class="btn btn-primary">Order</button></th> @*Button needs to be added*@
+                <th>
+                    @Html.ActionLink("Order", "methodAddOrder", "Order", item, new {@class ="btn btn-primary", id = "whatever" + item.ABV} ) 
+                </th> @*Button needs to be added*@
             </tr>
         }
         

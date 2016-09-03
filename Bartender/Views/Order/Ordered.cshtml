@@ -1,0 +1,45 @@
+﻿@* Order page for the Bartender application.
+    Senior Project I
+    Jon Ebert *@
+
+@model IEnumerable<Bartender.Models.Drink>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h1>Order Queue</h1>
+
+@*Order queue that reflects all incomming orders from the menu page*@
+<div>
+    <table class="table table-bordered table-striped">
+        <thead class="text-info">
+            <tr>
+                @*Pulls Header information from the model through the controller*@
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.ABV)</th>
+                <th>@Html.DisplayNameFor(model => model.Price)</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @* table body - holds all drink info
+            I made these up using google's help :p *@
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Name</th>
+                    <th>@item.Description</th>
+                    <th>@item.ABV</th>
+                    <th>$@item.Price</th>
+                    <th>
+                        @*@Html.ActionLink("Order", "methodAddOrder", "Order", item, new { @class = "btn btn-primary", id = "whatever" + item.ABV })*@ //create prepare method
+                    </th> @*Button needs to be added*@
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
