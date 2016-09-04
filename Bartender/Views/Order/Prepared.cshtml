@@ -12,4 +12,35 @@
 
 @*A queue showing all the drinks that the bartender needs to prepare.
     -Also includes a button next to each drink to remove them from the bartender's queue*@
+<div>
+    <table class="table table-bordered table-striped">
+        <thead class="text-info">
+            <tr>
+                @*Pulls Header information from the model through the controller*@
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.ABV)</th>
+                <th>@Html.DisplayNameFor(model => model.Price)</th>
+                <th>Remove Drinks Once Prepared</th>
+            </tr>
+        </thead>
 
+        @* table body - holds all drink info
+            I made these up using google's help :p *@
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.Name</th>
+                    <th>@item.Description</th>
+                    <th>@item.ABV</th>
+                    <th>$@item.Price</th>
+                    <th>
+                        @Html.ActionLink("Drink Made, Remove from Orders", "MethodRemovePreparedDrink", "Order", item, new { @class = "btn btn-primary" }) //create prepare method
+                    </th> @*Button needs to be added*@
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

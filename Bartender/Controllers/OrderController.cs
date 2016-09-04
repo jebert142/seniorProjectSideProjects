@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,11 +15,22 @@ namespace Bartender.Controllers
         //creates the order list
         List<Drink> _drinkOrderList = new List<Drink>();
 
+        private static int id = 0;
+
         //add order method
         public ActionResult methodAddOrder(Drink drinkToAdd)
         {
+            drinkToAdd.ID = ++id;
             _drinkOrderList.Add(drinkToAdd);
             return RedirectToAction("Ordered");
+        }
+
+        //remove from order method
+        public ActionResult methodMoveFromOrderedToPrepared(Drink drinkPassedIn)
+        {
+            _preparedDrinkList.RemoveAll(Drink => Drink.ID == drinkPassedIn.ID);
+            _preparedDrinkList.Add(drinkPassedIn);
+            return RedirectToAction("Prepared");
         }
 
         //returns Ordered view and passes in the _drinkOrderList
@@ -27,22 +39,24 @@ namespace Bartender.Controllers
             return View(_drinkOrderList);
         }
 
+
+
+        //Methods for the Prepared Drinks Page
         //creates the Prepared list
         List<Drink> _preparedDrinkList = new List<Drink>();
-
-        //add order method
-        public ActionResult methodAddPreparedDrink(Drink addingDrink)
+        
+        //remove from prepared method
+        public ActionResult MethodRemovePreparedDrink(Drink removeDrink)
         {
-            _preparedDrinkList.Add(addingDrink);
-            return RedirectToAction("Ordered");
+            _preparedDrinkList.RemoveAll(Drink => Drink.ID == removeDrink.ID);
+            return RedirectToAction("Prepared");
         }
 
         //returns Ordered view and passes in the _drinkOrderList
         public ActionResult Prepared()
         {
-            return View(_drinkOrderList);
+            return View(_preparedDrinkList);
         }
-
 
     }
 }

@@ -2,6 +2,7 @@
     Senior Project I
     Jon Ebert *@
 
+@using Bartender.Controllers
 @model IEnumerable<Bartender.Models.Drink>
 
 @{
@@ -30,12 +31,12 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    @*<th>@Html.()</th>*@
                     <th>@item.Name</th>
-                    <th>@item.Description</th>
                     <th>@item.ABV</th>
                     <th>$@item.Price</th>
                     <th>
-                        @*@Html.ActionLink("Order", "methodAddOrder", "Order", item, new { @class = "btn btn-primary", id = "whatever" + item.ABV })*@ //create prepare method
+                        @Html.ActionLink("Prepare", "methodMoveFromOrderedToPrepared", "Order", item, new { @class = "btn btn-primary"}) //create prepare method
                     </th> @*Button needs to be added*@
                 </tr>
             }

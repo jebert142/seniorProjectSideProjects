@@ -12,6 +12,7 @@ namespace Bartender.Models
         public string Description { get; set; }
         public double ABV { get; set; } //Alcohol By Volume
         public double Price { get; set; }  
+        public int ID { get; set; }
     }
 
 }
