@@ -18,7 +18,7 @@ namespace Bartender.Controllers
         private static int id = 0;
 
         //add order method
-        public ActionResult methodAddOrder(Drink drinkToAdd)
+        public RedirectToRouteResult methodAddOrder(Drink drinkToAdd)
         {
             drinkToAdd.ID = ++id;
             _drinkOrderList.Add(drinkToAdd);

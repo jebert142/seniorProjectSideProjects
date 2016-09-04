@@ -29,13 +29,13 @@
         @foreach (var item in Model)
         {
             <tr>
-                <th>@item.Name</th>
-                <th>@item.Description</th>
-                <th>@item.ABV</th>
-                <th>$@item.Price</th>
-                <th>
-                    @Html.ActionLink("Order", "methodAddOrder", "Order", item, new {@class ="btn btn-primary", id = "whatever" + item.ABV} ) 
-                </th> @*Button needs to be added*@
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.ABV</td>
+                <td>$@item.Price</td>
+                <td>
+                    @Html.ActionLink("Order", "methodAddOrder", "Order", item, new {@class ="btn btn-primary"} ) 
+                </td> @*Button needs to be added*@
             </tr>
         }
         
