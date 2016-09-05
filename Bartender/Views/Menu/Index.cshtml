@@ -23,19 +23,19 @@
         </tr>
         </thead>
 
-        @* table body - holds all drink info
+        @* table body - holds all drink info for general menu items
             I made these up using google's help :p *@
         <tbody>
-        @foreach (var item in Model)
+        @foreach (var drinkItem in Model)
         {
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td>@item.ABV</td>
-                <td>$@item.Price</td>
+                <td>@drinkItem.Name</td>
+                <td>@drinkItem.Description</td>
+                <td>@drinkItem.ABV</td>
+                <td>$@drinkItem.Price</td>
                 <td>
-                    @Html.ActionLink("Order", "methodAddOrder", "Order", item, new {@class ="btn btn-primary"} ) 
-                </td> @*Button needs to be added*@
+                    @Html.ActionLink("Order", "methodAddOrder", "Order", drinkItem, new {@class ="btn btn-primary"} ) 
+                </td> 
             </tr>
         }
         

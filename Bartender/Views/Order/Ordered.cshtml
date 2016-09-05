@@ -2,7 +2,6 @@
     Senior Project I
     Jon Ebert *@
 
-@using Bartender.Controllers
 @model IEnumerable<Bartender.Models.Drink>
 
 @{
@@ -25,19 +24,18 @@
             </tr>
         </thead>
 
-        @* table body - holds all drink info
-            I made these up using google's help :p *@
+        @* table body - holds all drink info for Ordered items *@
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var orderedItem in Model)
             {
                 <tr>
-                    @*<th>@Html.()</th>*@
-                    <th>@item.Name</th>
-                    <th>@item.ABV</th>
-                    <th>$@item.Price</th>
-                    <th>
-                        @Html.ActionLink("Prepare", "methodMoveFromOrderedToPrepared", "Order", item, new { @class = "btn btn-primary"}) 
-                    </th>
+                    <td>@orderedItem.Name</td>
+                    <td>@orderedItem.Description</td>
+                    <td>@orderedItem.ABV</td>
+                    <td>$@orderedItem.Price</td>
+                    <td>
+                        @Html.ActionLink("Prepare", "methodMoveFromOrderedToPrepared", "Order", orderedItem, new { @class = "btn btn-primary"}) 
+                    </td>
                 </tr>
             }
 
