@@ -29,12 +29,13 @@
             @foreach (var orderedItem in Model)
             {
                 <tr>
-                    @orderedItem.Name
+                    <td>@orderedItem.Name</td>
                     <td>@orderedItem.Description</td>
                     <td>@orderedItem.ABV</td>
                     <td>$@orderedItem.Price</td>
+                    @*The following table data tags display the data from the list being passed into the view using the orderedItem variable*@
                     <td>
-                        @Html.ActionLink("Prepare", "MethodAddOrder", "Order", orderedItem, new { @class = "btn btn-primary"}) 
+                        @Html.ActionLink("Prepare", "MethodMoveFromOrderedToPrepared", "Order", orderedItem, new { @class = "btn btn-primary"}) 
                     </td>
                 </tr>
             }

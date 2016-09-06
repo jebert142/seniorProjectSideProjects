@@ -10,8 +10,7 @@ namespace Bartender.Controllers
     public class MenuController : Controller
     {
 
-        //moved to order controller
-
+        //First drink list created, used by index for the header and main menu.
         private static List<Drink> _drinkList = new List<Drink>() 
         {
             new Drink
@@ -43,10 +42,6 @@ namespace Bartender.Controllers
                 Name = "Manhattan", Description = "Whiskey, cherry, something else. Served straight up, no ice", ABV = .09, Price = 9.50
             }
         };
-
-
-        // GET: Menu
-        //Views have a red line under them?
 
         //returns the Index.cshtml view
         public ActionResult Index()

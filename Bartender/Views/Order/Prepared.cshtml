@@ -5,10 +5,10 @@
 @model IEnumerable<Bartender.Models.Drink>
 
 @{
-    ViewBag.Title = "Prepared"; 
+    ViewBag.Title = "Prepare Queue"; 
 }
 
-<h1>Prepared Drinks</h1>
+<h1>Drinks To Prepare</h1>
 
 @*A queue showing all the drinks that the bartender needs to prepare.
     -Also includes a button next to each drink to remove them from the bartender's queue*@
@@ -30,14 +30,14 @@
             @foreach (var preparedItem in Model)
             {
                 <tr>
-                    @*These add the prepared item to the table under the header row*@
+                    @*These add the items in need of preperation to the table under the header row using the preparedItem variable*@
                     <td>@preparedItem.Name</td>
                     <td>@preparedItem.Description</td>
                     <td>@preparedItem.ABV</td>
                     <td>$@preparedItem.Price</td>
                     @*The following action link *@
                     <td>
-                        @Html.ActionLink("Drink Made, Remove from Orders", "MethodRemovePreparedDrink", "Order", preparedItem, new {@class = "btn btn-primary"})
+                        @Html.ActionLink("Drink Made, Remove from Orders", "MethodRemoveFromPrepareQueue", "Order", preparedItem, new {@class = "btn btn-primary"})
                     </td>
                 </tr>
             }

@@ -29,15 +29,16 @@
         <tbody>
         @foreach (var drinkItem in Model)
           {
-            <tr>
-                <td>@drinkItem.Name</td>
-                <td>@drinkItem.Description</td>
-                <td>@drinkItem.ABV</td>
-                <td>$@drinkItem.Price</td>
-                <td>
-                    @Html.ActionLink("Order", "MethodAddOrder", "Order", drinkItem, new {@class ="btn btn-primary"} ) 
-                </td> 
-            </tr>
+              <tr>
+                  @*The following table data tags display the data from the list being passed into the view using the drinkItem variable*@
+                  <td>@drinkItem.Name</td>
+                  <td>@drinkItem.Description</td>
+                  <td>@drinkItem.ABV</td>
+                  <td>$@drinkItem.Price</td>
+                  <td>
+                      @Html.ActionLink("Order", "MethodAddOrder", "Order", drinkItem, new {@class = "btn btn-primary"})
+                  </td>
+              </tr>
           }
         
         </tbody>

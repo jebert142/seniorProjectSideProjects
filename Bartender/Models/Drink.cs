@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Bartender.Models
 {
-    //Drink model includes drink name, description, alcohol content, and price.
+    //Drink model includes drink name, description, alcohol content, price, and ID.
     public class Drink
     {
         public string Name { get; set; }

@@ -5,14 +5,20 @@ using Bartender.Models;
 namespace Bartender.Controllers
 {
     //This controller houses each method for each step in the order process and other necessary objects
-    //Those methods need to add...
+    //Three methods that alter the lists, Two that push the data to the views, Two lists created
     public class OrderController : Controller
     {
         //creates the order list
-        List<Drink> _drinkOrderList = new List<Drink>();
+        private static List<Drink> _drinkOrderList = new List<Drink>();
 
+        //creates the Prepared list
+        private static List<Drink> _preparedDrinkList = new List<Drink>();
+
+        //instantiates integer for ID tracking
         private static int id = 0;
 
+
+        //Uses RedirectToRouteResult instead of Action result because action result did not take the program to the Prepared page
         //add order method
         public RedirectToRouteResult MethodAddOrder(Drink drinkToAdd)
         {
@@ -22,25 +28,24 @@ namespace Bartender.Controllers
         }
 
         //remove from order method
-        public ActionResult MethodMoveFromOrderedToPrepared(Drink drinkPassedIn)
+        public RedirectToRouteResult MethodMoveFromOrderedToPrepared(Drink drinkPassedIn)
         {
-            _preparedDrinkList.RemoveAll(drink => drink.ID == drinkPassedIn.ID);
+            _drinkOrderList.RemoveAll(drink => drink.ID == drinkPassedIn.ID);
             _preparedDrinkList.Add(drinkPassedIn);
             //need remove statement here to consolidate methods into one. I don't need two buttons
             return RedirectToAction("Prepared");
         }
 
-        //creates the Prepared list
-        List<Drink> _preparedDrinkList = new List<Drink>();
-        
-        //remove from prepared method
-        public ActionResult MethodRemovePreparedDrink(Drink removeDrink)
+        //remove from prepare queue 
+        public RedirectToRouteResult MethodRemoveFromPrepareQueue(Drink drinkPassedIn)
         {
-            _preparedDrinkList.RemoveAll(drink => drink.ID == removeDrink.ID);
+            _preparedDrinkList.RemoveAll(drink => drink.ID == drinkPassedIn.ID);
+            //need remove statement here to consolidate methods into one. I don't need two buttons
             return RedirectToAction("Prepared");
         }
 
 
+        //Return View Methods
         //returns Ordered view and passes in the _drinkOrderList
         public ActionResult Ordered()
         {
