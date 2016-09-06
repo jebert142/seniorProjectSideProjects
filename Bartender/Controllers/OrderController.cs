@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.EnterpriseServices;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Bartender.Models;
 
@@ -18,7 +14,7 @@ namespace Bartender.Controllers
         private static int id = 0;
 
         //add order method
-        public RedirectToRouteResult methodAddOrder(Drink drinkToAdd)
+        public RedirectToRouteResult MethodAddOrder(Drink drinkToAdd)
         {
             drinkToAdd.ID = ++id;
             _drinkOrderList.Add(drinkToAdd);
@@ -26,12 +22,24 @@ namespace Bartender.Controllers
         }
 
         //remove from order method
-        public ActionResult methodMoveFromOrderedToPrepared(Drink drinkPassedIn)
+        public ActionResult MethodMoveFromOrderedToPrepared(Drink drinkPassedIn)
         {
-            _preparedDrinkList.RemoveAll(Drink => Drink.ID == drinkPassedIn.ID);
+            _preparedDrinkList.RemoveAll(drink => drink.ID == drinkPassedIn.ID);
             _preparedDrinkList.Add(drinkPassedIn);
+            //need remove statement here to consolidate methods into one. I don't need two buttons
             return RedirectToAction("Prepared");
         }
+
+        //creates the Prepared list
+        List<Drink> _preparedDrinkList = new List<Drink>();
+        
+        //remove from prepared method
+        public ActionResult MethodRemovePreparedDrink(Drink removeDrink)
+        {
+            _preparedDrinkList.RemoveAll(drink => drink.ID == removeDrink.ID);
+            return RedirectToAction("Prepared");
+        }
+
 
         //returns Ordered view and passes in the _drinkOrderList
         public ActionResult Ordered()
@@ -39,20 +47,7 @@ namespace Bartender.Controllers
             return View(_drinkOrderList);
         }
 
-
-
-        //Methods for the Prepared Drinks Page
-        //creates the Prepared list
-        List<Drink> _preparedDrinkList = new List<Drink>();
-        
-        //remove from prepared method
-        public ActionResult MethodRemovePreparedDrink(Drink removeDrink)
-        {
-            _preparedDrinkList.RemoveAll(Drink => Drink.ID == removeDrink.ID);
-            return RedirectToAction("Prepared");
-        }
-
-        //returns Ordered view and passes in the _drinkOrderList
+        //returns Ordered view and passes in the _preparedDrinkList
         public ActionResult Prepared()
         {
             return View(_preparedDrinkList);

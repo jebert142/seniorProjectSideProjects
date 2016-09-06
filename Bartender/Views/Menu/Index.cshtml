@@ -3,6 +3,7 @@
     Jon Ebert *@
 
 @model IEnumerable<Bartender.Models.Drink>
+
 @{
     ViewBag.Title = "Menu";
 }
@@ -14,7 +15,7 @@
     <table class="table table-bordered table-striped">
         <thead class="text-info">
         <tr >
-            @*Pulls Header information from the model through the controller*@
+            @*Pulls Header information from the model*@
             <th>@Html.DisplayNameFor(model => model.Name)</th>
             <th>@Html.DisplayNameFor(model => model.Description)</th>
             <th>@Html.DisplayNameFor(model => model.ABV)</th>
@@ -27,17 +28,17 @@
             I made these up using google's help :p *@
         <tbody>
         @foreach (var drinkItem in Model)
-        {
+          {
             <tr>
                 <td>@drinkItem.Name</td>
                 <td>@drinkItem.Description</td>
                 <td>@drinkItem.ABV</td>
                 <td>$@drinkItem.Price</td>
                 <td>
-                    @Html.ActionLink("Order", "methodAddOrder", "Order", drinkItem, new {@class ="btn btn-primary"} ) 
+                    @Html.ActionLink("Order", "MethodAddOrder", "Order", drinkItem, new {@class ="btn btn-primary"} ) 
                 </td> 
             </tr>
-        }
+          }
         
         </tbody>
     </table>

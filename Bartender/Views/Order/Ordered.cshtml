@@ -15,7 +15,7 @@
     <table class="table table-bordered table-striped">
         <thead class="text-info">
             <tr>
-                @*Pulls Header information from the model through the controller*@
+                @*Pulls Header information from the model*@
                 <th>@Html.DisplayNameFor(model => model.Name)</th>
                 <th>@Html.DisplayNameFor(model => model.Description)</th>
                 <th>@Html.DisplayNameFor(model => model.ABV)</th>
@@ -29,12 +29,12 @@
             @foreach (var orderedItem in Model)
             {
                 <tr>
-                    <td>@orderedItem.Name</td>
+                    @orderedItem.Name
                     <td>@orderedItem.Description</td>
                     <td>@orderedItem.ABV</td>
                     <td>$@orderedItem.Price</td>
                     <td>
-                        @Html.ActionLink("Prepare", "methodMoveFromOrderedToPrepared", "Order", orderedItem, new { @class = "btn btn-primary"}) 
+                        @Html.ActionLink("Prepare", "MethodAddOrder", "Order", orderedItem, new { @class = "btn btn-primary"}) 
                     </td>
                 </tr>
             }

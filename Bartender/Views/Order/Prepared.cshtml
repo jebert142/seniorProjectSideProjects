@@ -4,7 +4,6 @@
 
 @model IEnumerable<Bartender.Models.Drink>
 
-
 @{
     ViewBag.Title = "Prepared"; 
 }
@@ -17,7 +16,7 @@
     <table class="table table-bordered table-striped">
         <thead class="text-info">
             <tr>
-                @*Pulls Header information from the model through the controller*@
+                @*Pulls Header information from the model*@
                 <th>@Html.DisplayNameFor(model => model.Name)</th>
                 <th>@Html.DisplayNameFor(model => model.Description)</th>
                 <th>@Html.DisplayNameFor(model => model.ABV)</th>
@@ -31,13 +30,15 @@
             @foreach (var preparedItem in Model)
             {
                 <tr>
-                    <th>@preparedItem.Name</th>
-                    <th>@preparedItem.Description</th>
-                    <th>@preparedItem.ABV</th>
-                    <th>$@preparedItem.Price</th>
-                    <th>
-                        @Html.ActionLink("Drink Made, Remove from Orders", "MethodRemovePreparedDrink", "Order", preparedItem, new { @class = "btn btn-primary" })
-                    </th>
+                    @*These add the prepared item to the table under the header row*@
+                    <td>@preparedItem.Name</td>
+                    <td>@preparedItem.Description</td>
+                    <td>@preparedItem.ABV</td>
+                    <td>$@preparedItem.Price</td>
+                    @*The following action link *@
+                    <td>
+                        @Html.ActionLink("Drink Made, Remove from Orders", "MethodRemovePreparedDrink", "Order", preparedItem, new {@class = "btn btn-primary"})
+                    </td>
                 </tr>
             }
 
