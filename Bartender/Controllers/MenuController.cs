@@ -35,7 +35,7 @@ namespace Bartender.Controllers
             },
             new Drink
             {
-                Name = "Margarita", Description = "Gin and tomato-juice cocktail. No Vodka here.", ABV = .15, Price = 7.00
+                Name = "Margarita", Description = "Tequilla, triple sec, and lime.", ABV = .15, Price = 7.00
             },
             new Drink
             {
